@@ -18,11 +18,17 @@ When we make the project we made a divition of our tasks. David de León was in 
 
 In the other hand, I was in carge of hardware stuff. In the beginning I made a (most likely) copy of the car that TheTeacherG made, but after the first presentation I note 2 problems, the autonomy and the stability. For the first problem I opted for use a custom batery made by laptop cells, and for the second problem I was adviced by Yerik Martín in use a new shell for the project, that that let us to use another pair of motors. When we buy the new shell none of the code was changed, I just have to connect the second's motors with his couples were.
 
-As you may have guessed, Yerik Martín was (in part) the responsable for mechanical updates (he wasn't a part of the team when we pressent the early first version), and more than that, he has the responsable of the wonderful latests presentations, without him we would not do a good presentation and even we would not have win the second place in De La Salle Bajío's Science Fair (you can find a prove of it on [this](http://bajio.delasalle.edu.mx/noticias/noticia.php?n=1906) page).
+As you may have guessed, Yerik Martín was (in part) the responsable for mechanical updates (he wasn't a part of the team when we pressent the early first version), and more than that, he has the responsable of the wonderful latests presentations, we are indebted with him.
 
-The only uptate to the code was before the last presentation of the project, in Saltillo, Coahuila city, in the facilities of De La Salle's Colegio Ignacio Zaragoza (CIZ). David change the interface of the app with our help for doing it more striking and remove a bug.
+The only uptate to the code was before the last presentation of the project. David change the interface of the app with our help for doing it more striking and remove a bug.
+## _Prizes_
+All the prizes wonned were from lasallian institutions, since the project wasn't carried beyond those borders. The first prize that _Arduino-Car_ won was a diploma from our school (Colegio Miguel de Bolonia). The project won the first place in the school's science fair and they took us to another science fair in the city of León, Guanajuato at the facilities of De La Salle Bajío university.
+
+In that science fair we compete against a lot of interesting projects. But at the end we won the second place of our category. We believe that the great presentation maked by Yerik Martín was essential in our victory. You can find a prove of this win on [this page](http://bajio.delasalle.edu.mx/noticias/noticia.php?n=1906).
+
+Lately, we were invited to an event in the city of Saltillo, Coahuila, now at the facilities of Colegio Ignacio Zaragoza. This wasn't a sciene fair as is, but it was an event where other lasallian schools share some of the talents that his students have. From this event we get a trophy, that doesn't have a place as is, but it was another acknowledgment of our work, and we proudly take it to our institution. That was the last presentation of the project.
 ## _Make your own one_
-The needed material isn't too difficult to get. The needs an HC-05 or similar (as HC-06 or even HM-10 to get iOS compatibility) for app comunication, an L293D driver for motor controlling and a HC-SR04 for safety purposes. You can find an image of the connections above here or using the .fzz file on Fritzing.
+The needed material isn't too difficult to get. The needs an HC-05 or similar (as HC-06 or even HM-10 to get iOS compatibility) for app comunication, an L293D driver for motor controlling and a HC-SR04 for safety purposes. You can find an image of the connections above here or using the .fzz file on Fritzing. The image was made assuming that the HC-SR04 distance sensor goes in the front of the car.
 
 ![Connections](https://i.imgur.com/oyGz5N4.png)
 
