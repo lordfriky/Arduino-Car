@@ -14,9 +14,9 @@ More than the modified app, the project we present is an idea of safe transporta
 ## _The idea_
 When we created _Arduino-Car_ we thought about those people that, for some reason, couldn't drive a conventional car, so we wanted to make an alternative that even an eight years old child could drive. From that the idea of building _Arduino-Car_ was born.
 ## _The development_
-When we made the project we made a divition of our tasks. David de León was in charge of software stuff, so he has to make the code for the project, but lately he find the TheTeacherG's car and it was the most similar idea of we want it to make, so he just copy the code and made the modified app.
+When we made the project we made a divition of our tasks. David de León was in charge of software stuff, so he had to design the code for the project, but later he find the TheTeacherG's car and it was the most similar idea of what we wanted to make, so he just copied the code and made the modified app.
 
-In the other hand, I was in carge of hardware stuff. In the beginning I made a (most likely) copy of the car that TheTeacherG made, but after the first presentation I note 2 problems, the autonomy and the stability. For the first problem I opted for use a custom batery made by laptop cells, and for the second problem I was adviced by Yerik Martín in use a new shell for the project, that that let us to use another pair of motors. When we buy the new shell none of the code was changed, I just have to connect the second's motors with his couples were.
+In the other hand, I was in charge of hardware stuff. In the beginning I made a copy of the car that TheTeacherG made, but after the first presentation I noted two problems; the autonomy and the stability. For the first problem I opted to use a custom batery made with laptop cells, and for the second problem I was adviced by Yerik Martín in use a new shell for the car, which would allow us to use an extra pair of engines. When we buy the new shell none of the code was changed, I just have to connect the second's motors with his couples were.
 
 As you may have guessed, Yerik Martín was (in part) the responsable for mechanical updates (he wasn't a part of the team when we pressent the early first version), and more than that, he has the responsable of the wonderful latests presentations, we are indebted with him.
 
