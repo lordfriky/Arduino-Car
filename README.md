@@ -32,7 +32,7 @@ The material you need is not too difficult to get. You will need an HC-05 or sim
 
 ![Connections](https://i.imgur.com/oyGz5N4.png)
 
-For putting the Arduino in order you just have to charge the code provided (the .ino file) with Arduino IDE, nothing else. If you don't have it you can get it from the [Arduino page](https://www.arduino.cc/en/Main/Software).
+To put the Arduino board in order you just have to charge the code provided (the .ino file) with Arduino IDE before connecting everything else, nothing more. If you don't have it you can get it from the [Arduino page](https://www.arduino.cc/en/Main/Software).
 
 If you want to modify the app or just know how it works you just have to import the .aia file to your MIT AppInventor account. ¡Feel free to make any modification you want!
 ## _Greetings_
