@@ -32,11 +32,11 @@ The material you need is not too difficult to get. You will need an HC-05 or sim
 
 ![Connections](https://i.imgur.com/oyGz5N4.png)
 
-To put the Arduino board in order you just have to charge the code provided (the .ino file) with Arduino IDE before connecting everything else, nothing more. If you don't have it you can get it from the [Arduino page](https://www.arduino.cc/en/Main/Software).
+To set up the Arduino board you just have to charge the code provided (the .ino file) with Arduino IDE before connecting everything else, nothing more. If you don't have it you can get it from the [Arduino page](https://www.arduino.cc/en/Main/Software).
 
-If you want to modify the app or just know how it works you just have to import the .aia file to your MIT AppInventor account. ¡Feel free to make any modification you want!
-## _Greetings_
-This project wasn't supported a lot as our latest projects, but there's still three names that I want to mention:
+If you want to modify the app or just to get to know how it works you just have to import the .aia file to your MIT AppInventor account. Feel free to make any modification you want!
+## _Thanks_
+This project was not supported as much as our other projects, but there's still three names that I want to mention:
 - Javier Balan, fsc. For his big support to the project. His LinkedIn profile is right [here](https://mx.linkedin.com/in/javierbalan).
-- Pascual de Alba Guillen. For his help in my tasks and for lenting me a couple of laptop battery cells.
-- Teacher Fernanda Brown. For helping me translating this readme.
+- Pascual de Alba Guillen. For his help in my tasks and for lending me a couple of laptop battery cells.
+- Teacher Fernanda Brown. For helping me translate this readme.
