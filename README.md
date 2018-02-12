@@ -8,13 +8,13 @@ This project was made by:
 - Yerik Martín García
 
 Our app is on Google Play, you can find it [here](https://play.google.com/store/apps/details?id=appinventor.ai_14s165.Arduino&hl=es_419).
-## _¿What really is **Arduino-Car**?_
-This was our first project, but it isn't really ours, this is just a copy of [TheTeacherG](https://www.youtube.com/channel/UCc-vG493VqpLmL5gbnCvU4A)'s remote control Arduino car. (Him source code can be find [here](https://www.dropbox.com/s/dsjw7u619affgaf/Carro%20Sensor%20de%20Distancia%20Bluetooth.txt?dl=0)).
-More than the modified app, the thing that we presented was an idea of safe transportation.
+## _¿What **Arduino-Car** really is?_
+This was our first project, but it isn't really ours, this is just a copy of [TheTeacherG](https://www.youtube.com/channel/UCc-vG493VqpLmL5gbnCvU4A)'s remote control Arduino car. (His source code can be found [here](https://www.dropbox.com/s/dsjw7u619affgaf/Carro%20Sensor%20de%20Distancia%20Bluetooth.txt?dl=0)).
+More than the modified app, the project we present is an idea of safe transportation.
 ## _The idea_
-When we create _Arduino-Car_ we think about those people that, for some reason, couldn't drive a conventional car, so we want to make an alternative that even an 8 years old children could drive. From that the idea of building _Arduino-Car_ was born.
+When we created _Arduino-Car_ we thought about those people that, for some reason, couldn't drive a conventional car, so we wanted to make an alternative that even an eight years old child could drive. From that the idea of building _Arduino-Car_ was born.
 ## _The development_
-When we make the project we made a divition of our tasks. David de León was in charge of software stuff, so he has to make the code for the project, but lately he find the TheTeacherG's car and it was the most similar idea of we want it to make, so he just copy the code and made the modified app.
+When we made the project we made a divition of our tasks. David de León was in charge of software stuff, so he has to make the code for the project, but lately he find the TheTeacherG's car and it was the most similar idea of we want it to make, so he just copy the code and made the modified app.
 
 In the other hand, I was in carge of hardware stuff. In the beginning I made a (most likely) copy of the car that TheTeacherG made, but after the first presentation I note 2 problems, the autonomy and the stability. For the first problem I opted for use a custom batery made by laptop cells, and for the second problem I was adviced by Yerik Martín in use a new shell for the project, that that let us to use another pair of motors. When we buy the new shell none of the code was changed, I just have to connect the second's motors with his couples were.
 
