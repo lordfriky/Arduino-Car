@@ -24,7 +24,7 @@ The only update to the code happened before the last presentation of the project
 ## _Prizes_
 All the prizes this project has won have come from lasallian institutions, since it has not been carried beyond those borders. The first prize that _Arduino-Car_ won was a diploma from our school (Colegio Miguel de Bolonia). The project won the first place in the school's science fair and they took us to another science fair in the city of León, Guanajuato at the facilities of De La Salle Bajío University.
 
-In that science fair we competed against a lot of interesting projects. But at the end we won the second place in our category. We believe that the great presentation made by Yerik Martín was essential in our victory. You can find a prove of this win on [this page](http://bajio.delasalle.edu.mx/noticias/noticia.php?n=1906).
+In that science fair we competed against a lot of interesting projects. But at the end we won the second place in our category. We believe that the great presentation made by Yerik Martín was essential in our victory. You can find evidence of this victory on [this page](http://bajio.delasalle.edu.mx/noticias/noticia.php?n=1906).
 
 Lately, we were invited to an event in the city of Saltillo, Coahuila, now at the facilities of Colegio Ignacio Zaragoza. This wasn't a sciene fair as is, but it was an event where other lasallian schools share some of the talents that his students have. From this event we get a trophy, that doesn't have a place as is, but it was another acknowledgment of our work, and we proudly take it to our institution. That was the last presentation of the project.
 ## _Make your own one_
