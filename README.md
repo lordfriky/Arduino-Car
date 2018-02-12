@@ -18,13 +18,13 @@ When we made the project we made a divition of our tasks. David de León was in 
 
 In the other hand, I was in charge of hardware stuff. In the beginning I made a copy of the car that TheTeacherG made, but after the first presentation I noted two problems; the autonomy and the stability. For the first problem I opted to use a custom batery made with laptop cells, and for the second problem I was adviced by Yerik Martín in use a new shell for the car, which would allow us to use an extra pair of engines. When we bought the new shell, no part of the code was changed, I just had to connect the second pair of engines with their couples.
 
-As you may have guessed, Yerik Martín was (in part) the responsable for mechanical updates (he wasn't a part of the team when we presented the early first version), and more than that, he has the responsable of the wonderful latests presentations, we are indebted with him.
+As you may have guessed, Yerik Martín was (in part) the responsable for mechanical updates (he wasn't a part of the team when we presented the early first version), and more than that, he was responsable for the wonderful latest presentations; we are in debt with him.
 
-The only uptate to the code was before the last presentation of the project. David change the interface of the app with our help for doing it more striking and remove a bug.
+The only update to the code happened before the last presentation of the project. David changed the interface of the app with our help to make it more striking and to remove a bug.
 ## _Prizes_
-All the prizes wonned were from lasallian institutions, since the project wasn't carried beyond those borders. The first prize that _Arduino-Car_ won was a diploma from our school (Colegio Miguel de Bolonia). The project won the first place in the school's science fair and they took us to another science fair in the city of León, Guanajuato at the facilities of De La Salle Bajío university.
+All the prizes this project has won have come from lasallian institutions, since it has not been carried beyond those borders. The first prize that _Arduino-Car_ won was a diploma from our school (Colegio Miguel de Bolonia). The project won the first place in the school's science fair and they took us to another science fair in the city of León, Guanajuato at the facilities of De La Salle Bajío University.
 
-In that science fair we compete against a lot of interesting projects. But at the end we won the second place of our category. We believe that the great presentation maked by Yerik Martín was essential in our victory. You can find a prove of this win on [this page](http://bajio.delasalle.edu.mx/noticias/noticia.php?n=1906).
+In that science fair we competed against a lot of interesting projects. But at the end we won the second place in our category. We believe that the great presentation made by Yerik Martín was essential in our victory. You can find a prove of this win on [this page](http://bajio.delasalle.edu.mx/noticias/noticia.php?n=1906).
 
 Lately, we were invited to an event in the city of Saltillo, Coahuila, now at the facilities of Colegio Ignacio Zaragoza. This wasn't a sciene fair as is, but it was an event where other lasallian schools share some of the talents that his students have. From this event we get a trophy, that doesn't have a place as is, but it was another acknowledgment of our work, and we proudly take it to our institution. That was the last presentation of the project.
 ## _Make your own one_
