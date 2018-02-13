@@ -8,7 +8,7 @@ This project was made by:
 - Yerik Martín García
 
 Our app is on Google Play, you can find it [here](https://play.google.com/store/apps/details?id=appinventor.ai_14s165.Arduino&hl=es_419).
-## _¿What **Arduino-Car** really is?_
+## _What **Arduino-Car** really is_
 This was our first project, but it isn't really ours, this is just a copy of [TheTeacherG](https://www.youtube.com/channel/UCc-vG493VqpLmL5gbnCvU4A)'s remote control Arduino car. (His source code can be found [here](https://www.dropbox.com/s/dsjw7u619affgaf/Carro%20Sensor%20de%20Distancia%20Bluetooth.txt?dl=0)).
 More than the modified app, the project we present is an idea of safe transportation.
 ## _The idea_
