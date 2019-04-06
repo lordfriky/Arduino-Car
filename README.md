@@ -20,8 +20,5 @@ To set up the Arduino board you just have to charge the code provided (the .ino 
 
 If you want to modify the app or just to get to know how it works you just have to import the .aia file to your MIT AppInventor account. Feel free to make any modification you want!
 
-## Thanks
-This project was not supported as much as our other projects, but there's still three names that I want to mention:
-- Javier Balan, fsc. For his big support to the project. His LinkedIn profile is right [here](https://mx.linkedin.com/in/javierbalan).
-- Pascual de Alba Guillen. For his help in my tasks and for lending me a couple of laptop battery cells to energize the project.
-- Teacher Fernanda Brown. For helping me in the translation of this readme.
+## Special Thanks
+To-do
