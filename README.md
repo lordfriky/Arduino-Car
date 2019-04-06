@@ -1,4 +1,4 @@
-![Logo](https://i.imgur.com/ms3zFMX.jpg)
+<img src="https://github.com/lordfriky/Arduino-Car/raw/master/res/logo.png" alt="Arduino Car Logo" width="330"/>
 
 Yet another Arduino powered remote control car.
 Published under the GNU GPL 3.0 license, you can find more info in the [LICENCE](https://github.com/lordfriky/Arduino-Car/blob/master/LICENSE) file.
@@ -9,7 +9,7 @@ This project was made by:
 - Monserrat Hernández Romo
 - Ximena Macías Hernández
 
-[![app_button](https://i.imgur.com/EMgv32d.png)](https://play.google.com/store/apps/details?id=appinventor.ai_14s165.Arduino)
+<a href="https://play.google.com/store/apps/details?id=appinventor.ai_14s165.Arduino"><img src="https://github.com/lordfriky/Arduino-Car/raw/master/res/googleplay.png" alt="Google Play Logo" width="270"/></a>
 
 ## Under Construction
 Please come back later...
