@@ -42,13 +42,13 @@ int bts = 's';                                              //
 // Speed:                                                   //
 int spd = 255;                                              //
 //   Here you can control the motor speed, 255 is the max   //
-//                speed the L293D can handle.               //
+//                   value we can write.                    //
 //----------------------------------------------------------//
 // Distance:                                                //
 int dst;                                                    //
 //      To save the distance in a varible. It will use      //
 //          centimeters, if you want to use inches          //
-//                intead of cm read line 79.                //
+//                intead of cm read line 83.                //
 //////////////////////////////////////////////////////////////
 
 void setup(){
@@ -104,23 +104,23 @@ void loop(){
     }
     else{                           // If there's no obstacles, it runs forward
         driverWrite(spd, 0, spd, 0);
-        analogWrite(gdpin, 1023);
+        analogWrite(gdpin, 255);
     }
   }
 
   if(estado=='r'){                // Right
     driverWrite(0, 0, spd, 0);
-    analogWrite(gdpin, 765);
+    analogWrite(gdpin, 192);
   }
 
   if(estado=='b'){                // Backward
     driverWrite(0, spd, 0, spd);
-    analogWrite(gdpin, 510);
+    analogWrite(gdpin, 128);
   }
 
   if(estado=='l'){                // Left
     driverWrite(spd, 0, 0, 0);
-    analogWrite(gdpin, 255);
+    analogWrite(gdpin, 64);
   }
 
   if(estado=='s'){                // Stop
