@@ -90,7 +90,7 @@ void loop(){
     bts = Serial.read();
   }
 
-  if(estado=='f'){                  // Forward
+  if(bts=='f'){                  // Forward
     dst = getDistance();
     if(dst <= 20 && dst >=2){       // If the distance is lower than 20cm but higher than 2cm let's turn arround the car
        digitalWrite(13,HIGH);       // Turn on the LED as a signal
@@ -108,22 +108,22 @@ void loop(){
     }
   }
 
-  if(estado=='r'){                // Right
+  if(bts=='r'){                // Right
     driverWrite(0, 0, spd, 0);
     analogWrite(gdpin, 192);
   }
 
-  if(estado=='b'){                // Backward
+  if(bts=='b'){                // Backward
     driverWrite(0, spd, 0, spd);
     analogWrite(gdpin, 128);
   }
 
-  if(estado=='l'){                // Left
+  if(bts=='l'){                // Left
     driverWrite(spd, 0, 0, 0);
     analogWrite(gdpin, 64);
   }
 
-  if(estado=='s'){                // Stop
+  if(bts=='s'){                // Stop
     driverWrite(0, 0, 0, 0);
     analogWrite(gdpin, 0);
   }
