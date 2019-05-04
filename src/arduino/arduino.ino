@@ -12,7 +12,13 @@
 */
 
 /////////////////////////////////////////////////////////////
-//----------------------- Pin setup -----------------------//
+//----------------------- Libraries -----------------------//
+/////////////////////////////////////////////////////////////
+#include <SoftwareSerial.h>                                //
+/////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+//----------------------- Pin Setup -----------------------//
 /////////////////////////////////////////////////////////////
 // Right set of motors:                                    //
 const int rm1 = 0;                                         //
@@ -22,12 +28,25 @@ const int rm2 = 0;                                         //
 const int lm1 = 0;                                         //
 const int lm2 = 0;                                         //
 //---------------------------------------------------------//
+// Bluetooth serial:                                       //
+const int btRx = 0;                                        //
+const int btTx = 0;                                        //
+//---------------------------------------------------------//
 // Gadget interface:                                       //
 const int gdpin = 0;                                       //
 /////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////
+//-------------------- Libraries Setup --------------------//
+/////////////////////////////////////////////////////////////
+// Software (BT) Serial setup:                             //
+SoftwareSerial btSerial(btRx, btTx);                       //
+// Please note that BT module TX pin needs to be conected  //
+//       to the btRx pin and RX pin to the btTx pin.       //
+/////////////////////////////////////////////////////////////
+
 //////////////////////////////////////////////////////////////
-//-------------------- Global variables --------------------//
+//-------------------- Global Variables --------------------//
 //  Not all of them need to be global, but meh ¯\_(ツ)_/¯   //
 //////////////////////////////////////////////////////////////
 // Car direction:                                           //
@@ -50,7 +69,7 @@ int spd = 255;                                              //
 //////////////////////////////////////////////////////////////
 
 void setup(){
-  Serial.begin(9600);         // Start the serial to comunicate with the HC-06 or similar Bluetooth module
+  btSerial.begin(9600);         // Start the serial to comunicate with the HC-06 or similar Bluetooth module
 
   pinMode(rm1, OUTPUT);       // Set all the motor pins as output in order to work with them
   pinMode(rm2, OUTPUT);
@@ -70,8 +89,8 @@ void driverWrite(int srm1, int srm2, int slm1, int slm2){  // Let's make our cus
 }
 
 int readBT(){
-  if(Serial.available()>0){         // If the serial is available it'll read it and save the state in the 'btState' variable
-    btState = Serial.read();
+  if(btSerial.available()>0){       // If the serial is available it'll read it and save the state in the 'btState' variable
+    btState = btSerial.read();
 
     //-------- DIRECTION --------//
     
