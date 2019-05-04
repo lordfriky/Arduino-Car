@@ -128,6 +128,16 @@ void loop(){
     analogWrite(gdpin, 0);
   }
 
-  // To-do: speed control ;)
+  if(bts=='3'){                // Max speed
+    spd = 255;
+  }
+
+  if(bts=='2'){                // Mid speed
+    spd = 170;
+  }
+
+  if(bts=='1'){                // Min speed
+    spd = 85;
+  }
 
 }
