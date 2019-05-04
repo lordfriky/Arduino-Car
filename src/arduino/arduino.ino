@@ -28,12 +28,20 @@ const int gdpin = 0;                                       //
 
 //////////////////////////////////////////////////////////////
 //-------------------- Global variables --------------------//
-// They don't have to be exactly global, but meh ¯\_(ツ)_/¯ //
+//  Not all of them need to be global, but meh ¯\_(ツ)_/¯   //
 //////////////////////////////////////////////////////////////
-// Bluetooth state:                                         //
-int btState = 's';                                          //
+// Car direction:                                           //
+char drctn;                                                 //
 //  'f' = forward, 'b' = backward, 'l' = left, 'r' = right  //
 //                     and 's' = stop.                      //
+//----------------------------------------------------------//
+// Bluetooth state:                                         //
+char btState;                                               //
+//        To save the value readed from the serial.         //
+//----------------------------------------------------------//
+// Direction return value:                                  //
+char returnValue;                                           //
+//      The return value while reading the bluetooth.       //
 //----------------------------------------------------------//
 // Speed:                                                   //
 int spd = 255;                                              //
@@ -61,51 +69,73 @@ void driverWrite(int srm1, int srm2, int slm1, int slm2){  // Let's make our cus
   analogWrite(lm2, slm2);
 }
 
-void loop(){
+int readBT(){
   if(Serial.available()>0){         // If the serial is available it'll read it and save the state in the 'btState' variable
     btState = Serial.read();
-  }
-
-  switch(btState){
 
     //-------- DIRECTION --------//
     
-    case 'f':                      // Forward
-      driverWrite(spd, 0, spd, 0);
-      analogWrite(gdpin, 255);
-      break;
-
-    case 'r':                      // Right
-      driverWrite(0, 0, spd, 0);
-      analogWrite(gdpin, 192);
-      break;
-
-    case 'b':                      // Backward
-      driverWrite(0, spd, 0, spd);
-      analogWrite(gdpin, 128);
-      break;
-
-    case 'l':                      // Left
-      driverWrite(spd, 0, 0, 0);
-      analogWrite(gdpin, 64);
-      break;
-
-    case 's':                      // Stop
-      driverWrite(0, 0, 0, 0);
-      analogWrite(gdpin, 0);
+    if (btState == 'f'){
+      returnValue = 'f';      // Forward
+    } 
+    else if (btState == 'r'){
+      returnValue = 'r';      // Right
+    }
+    else if (btState == 'b'){
+      returnValue = 'b';      // Backward
+    }
+    else if (btState == 'l'){
+      returnValue = 'l';      // Left
+    }
+    else if (btState == 's'){
+      returnValue = 's';      // Stop
+    }
 
     //---------- SPEED ----------//
+    
+    else if (btState == '3'){
+      spd = 255;              // Max speed
+    }
+    else if (btState == '2'){
+      spd = 170;              // Mid speed
+    }
+    else if (btState == '1'){
+      spd = 85;               // Min speed
+    }
+  }
+  return returnValue;
+}
 
-    case '3':                      // Max speed
-      spd = 255;                   // The numbers are sent as strings, so we need to read them between quotes
-      break;
+void loop(){
+  drctn = readBT();
 
-    case '2':                      // Mid speed
-      spd = 170;
-      break;
+  while(drctn == 'f'){              // Forward
+    driverWrite(spd, 0, spd, 0);
+    analogWrite(gdpin, 255);
+    drctn = readBT();
+  }
 
-    case '1':                      // Min speed
-      spd = 85;
-      break;
+  while(drctn == 'r'){              // Right
+    driverWrite(0, 0, spd, 0);
+    analogWrite(gdpin, 192);
+    drctn = readBT();
+  }
+
+  while(drctn == 'b'){              // Backward
+    driverWrite(0, spd, 0, spd);
+    analogWrite(gdpin, 128);
+    drctn = readBT();
+  }
+
+  while(drctn == 'l'){              // Left
+    driverWrite(spd, 0, 0, 0);
+    analogWrite(gdpin, 64);
+    drctn = readBT();
+  }
+
+  while(drctn == 's'){              // Stop
+    driverWrite(0, 0, 0, 0);
+    analogWrite(gdpin, 0);
+    drctn = readBT();
   }
 }
