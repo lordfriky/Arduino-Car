@@ -31,7 +31,7 @@ const int gdpin = 0;                                       //
 // They don't have to be exactly global, but meh ¯\_(ツ)_/¯ //
 //////////////////////////////////////////////////////////////
 // Bluetooth state:                                         //
-int bts = 's';                                              //
+int btState = 's';                                          //
 //  'f' = forward, 'b' = backward, 'l' = left, 'r' = right  //
 //                     and 's' = stop.                      //
 //----------------------------------------------------------//
@@ -63,10 +63,10 @@ void driverWrite(int srm1, int srm2, int slm1, int slm2){  // Let's make our cus
 
 void loop(){
   if(Serial.available()>0){         // If the serial is available it'll read it and save the state in the 'bts' variable
-    bts = Serial.read();
+    btState = Serial.read();
   }
 
-  switch(bts){
+  switch(btState){
 
     //-------- DIRECTION --------//
     
