@@ -90,54 +90,58 @@ void loop(){
     bts = Serial.read();
   }
 
-  if(bts=='f'){                  // Forward
-    dst = getDistance();
-    if(dst <= 20 && dst >=2){       // If the distance is lower than 20cm but higher than 2cm let's turn arround the car
-       digitalWrite(13,HIGH);       // Turn on the LED as a signal
-       driverWrite(0, 0, 0, 0);     // Stop the car for 200ms
-       delay (200);
-       driverWrite(0, spd, 0, spd); // Turn back for 500ms
-       delay(500);
-       driverWrite(0, 0, spd, 0);   // And finally turn right for 1.1s
-       delay(1100);
-       digitalWrite(13,LOW);        // Turn off the led when everything is done
-    }
-    else{                           // If there's no obstacles, it runs forward
-        driverWrite(spd, 0, spd, 0);
-        analogWrite(gdpin, 255);
-    }
-  }
+  switch(bts){
 
-  if(bts=='r'){                // Right
-    driverWrite(0, 0, spd, 0);
-    analogWrite(gdpin, 192);
-  }
+    //-------- DIRECTION --------//
+    
+    case 'f':                      // Forward
+      dst = getDistance();
+      if(dst <= 20 && dst >=2){       // If the distance is lower than 20cm but higher than 2cm let's turn arround the car
+         digitalWrite(13,HIGH);       // Turn on the LED as a signal
+         driverWrite(0, 0, 0, 0);     // Stop the car for 200ms
+         delay (200);
+         driverWrite(0, spd, 0, spd); // Turn back for 500ms
+         delay(500);
+         driverWrite(0, 0, spd, 0);   // And finally turn right for 1.1s
+         delay(1100);
+         digitalWrite(13,LOW);        // Turn off the led when everything is done
+      }else{                           // If there's no obstacles, it runs forward
+         driverWrite(spd, 0, spd, 0);
+         analogWrite(gdpin, 255);
+      }
+      break;
 
-  if(bts=='b'){                // Backward
-    driverWrite(0, spd, 0, spd);
-    analogWrite(gdpin, 128);
-  }
+    case 'r':                      // Right
+      driverWrite(0, 0, spd, 0);
+      analogWrite(gdpin, 192);
+      break;
 
-  if(bts=='l'){                // Left
-    driverWrite(spd, 0, 0, 0);
-    analogWrite(gdpin, 64);
-  }
+    case 'b':                      // Backward
+      driverWrite(0, spd, 0, spd);
+      analogWrite(gdpin, 128);
+      break;
 
-  if(bts=='s'){                // Stop
-    driverWrite(0, 0, 0, 0);
-    analogWrite(gdpin, 0);
-  }
+    case 'l':                      // Left
+      driverWrite(spd, 0, 0, 0);
+      analogWrite(gdpin, 64);
+      break;
 
-  if(bts=='3'){                // Max speed
-    spd = 255;
-  }
+    case 's':                      // Stop
+      driverWrite(0, 0, 0, 0);
+      analogWrite(gdpin, 0);
 
-  if(bts=='2'){                // Mid speed
-    spd = 170;
-  }
+    //---------- SPEED ----------//
 
-  if(bts=='1'){                // Min speed
-    spd = 85;
-  }
+    case '3':                      // Max speed
+      spd = 255;                   // The numbers are sent as strings, so we need to read them between quotes
+      break;
 
+    case '2':                      // Mid speed
+      spd = 170;
+      break;
+
+    case '1':                      // Min speed
+      spd = 85;
+      break;
+  }
 }
