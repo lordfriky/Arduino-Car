@@ -9,6 +9,9 @@
   - Ximena Macías Hernández
   This project was published under the GNU General Public License 3.0
   More info in https://github.com/lordfriky/Arduino-Car/blob/master/LICENSE
+
+  WARNING: The gadget system hasn't been tested yet!
+  Use it at your own risk.
 */
 
 /////////////////////////////////////////////////////////////
@@ -33,16 +36,22 @@ const int btRx = 0;                                        //
 const int btTx = 0;                                        //
 //---------------------------------------------------------//
 // Gadget interface:                                       //
-const int gdpin = 0;                                       //
+const int gdEnable = 0;                                    //
+const int gdRx = 0;                                        //
+const int gdTx = 0;                                        //
+const int gdDir = 0;                                       //
 /////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////
 //-------------------- Libraries Setup --------------------//
 /////////////////////////////////////////////////////////////
-// Software (BT) Serial setup:                             //
+// Bluetooth serial setup:                                 //
 SoftwareSerial btSerial(btRx, btTx);                       //
 // Please note that BT module TX pin needs to be conected  //
 //       to the btRx pin and RX pin to the btTx pin.       //
+//---------------------------------------------------------//
+// Gadget interface serial setup:                          //
+SoftwareSerial gdSerial(gdRx, gdTx);                       //
 /////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////
@@ -50,12 +59,12 @@ SoftwareSerial btSerial(btRx, btTx);                       //
 //  Not all of them need to be global, but meh ¯\_(ツ)_/¯   //
 //////////////////////////////////////////////////////////////
 // Car direction:                                           //
-char drctn;                                                 //
+char direction;                                             //
 //  'f' = forward, 'b' = backward, 'l' = left, 'r' = right  //
 //                     and 's' = stop.                      //
 //----------------------------------------------------------//
-// Bluetooth state:                                         //
-char btState;                                               //
+// Serial state:                                            //
+char serialState;                                           //
 //        To save the value readed from the serial.         //
 //----------------------------------------------------------//
 // Direction return value:                                  //
@@ -66,19 +75,22 @@ char returnValue;                                           //
 int spd = 255;                                              //
 //   Here you can control the motor speed, 255 is the max   //
 //                   value we can write.                    //
+//----------------------------------------------------------//
+// Gadget control enabler:                                  //
+int gdEnabler;                                              //
+//        To check if we should let the gadget take         //
+//                 the control of the car.                  //
 //////////////////////////////////////////////////////////////
 
 void setup(){
-  btSerial.begin(9600);         // Start the serial to comunicate with the HC-06 or similar Bluetooth module
+  btSerial.begin(9600);       // Start the serial to comunicate with the HC-06 or similar Bluetooth module
+  gdSerial.begin(9600);       // Start the serial to comunicate with the gadget
 
   pinMode(rm1, OUTPUT);       // Set all the motor pins as output in order to work with them
   pinMode(rm2, OUTPUT);
   pinMode(lm1, OUTPUT);
   pinMode(lm2, OUTPUT);
-
-  pinMode(gdpin, OUTPUT);     // Set the gadged interface pin to output
-
-  pinMode(13,OUTPUT);         // Finally, we'll use the 13 pin led to indicate that the car found an obstacle and it needs to turn arround
+  pinMode(gdDir, OUTPUT);     // And finally, set the gadget interface pin to output
 }
 
 void driverWrite(int srm1, int srm2, int slm1, int slm2){  // Let's make our custom function to use the L293D driver
@@ -88,73 +100,84 @@ void driverWrite(int srm1, int srm2, int slm1, int slm2){  // Let's make our cus
   analogWrite(lm2, slm2);
 }
 
-int readBT(){
-  if(btSerial.available()>0){       // If the serial is available it'll read it and save the state in the 'btState' variable
-    btState = btSerial.read();
-
-    //-------- DIRECTION --------//
-    
-    if (btState == 'f'){
-      returnValue = 'f';      // Forward
-    } 
-    else if (btState == 'r'){
-      returnValue = 'r';      // Right
-    }
-    else if (btState == 'b'){
-      returnValue = 'b';      // Backward
-    }
-    else if (btState == 'l'){
-      returnValue = 'l';      // Left
-    }
-    else if (btState == 's'){
-      returnValue = 's';      // Stop
-    }
-
-    //---------- SPEED ----------//
-    
-    else if (btState == '3'){
-      spd = 255;              // Max speed
-    }
-    else if (btState == '2'){
-      spd = 170;              // Mid speed
-    }
-    else if (btState == '1'){
-      spd = 85;               // Min speed
+int check(){
+  gdEnabler = digitalRead(gdEnable);  // Check if we should let the gadget take the direction of the car
+  if (gdEnabler == HIGH){
+    gdSerial.listen();
+    if(gdSerial.available()>0){       // If the gdSerial is available it'll read it and save the state in the 'serialState' variable
+      serialState = gdSerial.read();
     }
   }
+  else {
+    btSerial.listen();
+    if(btSerial.available()>0){       // If the btSerial is available it'll read it and save the state in the 'serialState' variable
+      serialState = btSerial.read();
+    }
+  }
+
+  //-------- DIRECTION --------//
+
+  if (serialState == 'f'){
+    returnValue = 'f';      // Forward
+  }
+  else if (serialState == 'r'){
+    returnValue = 'r';      // Right
+  }
+  else if (serialState == 'b'){
+    returnValue = 'b';      // Backward
+  }
+  else if (serialState == 'l'){
+    returnValue = 'l';      // Left
+  }
+  else if (serialState == 's'){
+    returnValue = 's';      // Stop
+  }
+
+  //---------- SPEED ----------//
+
+  else if (serialState == '3'){
+    spd = 255;              // Max speed
+  }
+  else if (serialState == '2'){
+    spd = 170;              // Mid speed
+  }
+  else if (serialState == '1'){
+    spd = 85;               // Min speed
+  }
+
   return returnValue;
 }
 
 void loop(){
-  drctn = readBT();
+  direction = check();
 
-  while(drctn == 'f'){              // Forward
+  while(direction == 'f'){              // Forward
     driverWrite(spd, 0, spd, 0);
-    analogWrite(gdpin, 255);
-    drctn = readBT();
+    analogWrite(gdDir, 255);
+    direction = check();
   }
 
-  while(drctn == 'r'){              // Right
+  while(direction == 'r'){              // Right
     driverWrite(0, 0, spd, 0);
-    analogWrite(gdpin, 192);
-    drctn = readBT();
+    analogWrite(gdDir, 192);
+    direction = check();
   }
 
-  while(drctn == 'b'){              // Backward
+  while(direction == 'b'){              // Backward
     driverWrite(0, spd, 0, spd);
-    analogWrite(gdpin, 128);
-    drctn = readBT();
+    analogWrite(gdDir, 128);
+    direction = check();
   }
 
-  while(drctn == 'l'){              // Left
+  while(direction == 'l'){              // Left
     driverWrite(spd, 0, 0, 0);
-    analogWrite(gdpin, 64);
-    drctn = readBT();
+    analogWrite(gdDir, 64);
+    direction = check();
   }
 
-  while(drctn == 's'){              // Stop
+  while(direction == 's'){              // Stop
     driverWrite(0, 0, 0, 0);
-    analogWrite(gdpin, 0);
-    drctn = readBT();
+    analogWrite(gdDir, 0);
+    direction = check();
   }
 }
