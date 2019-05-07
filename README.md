@@ -9,7 +9,7 @@ This project was made by:
 - Monserrat Hernández Romo
 - Ximena Macías Hernández
 
-<a href="https://play.google.com/store/apps/details?id=appinventor.ai_14s165.Arduino"><img src="https://github.com/lordfriky/Arduino-Car/raw/master/res/googleplay.png" alt="Google Play Logo" width="270"/></a>
+<a href="https://play.google.com/store/apps/details?id=appinventor.ai_lord_friky_43.TheCarControl"><img src="https://github.com/lordfriky/Arduino-Car/raw/master/res/googleplay.png" alt="Get It On Google Play" width="270"/></a>
 
 ## Under Construction
 Please come back later...
