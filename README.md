@@ -4,7 +4,6 @@ Yet another Arduino powered remote control car.
 Published under the GNU General Public License 3.0, you can find more info in the [LICENCE](https://github.com/lordfriky/Arduino-Car/blob/master/LICENSE) file.
 This project was made by:
 - Aldo Emilio Muro de la Torre
-- Carolina de Alba Rubalcava
 - Daniel Hernández Muñoz (me, [@lordfriky](https://github.com/lordfriky))
 - Monserrat Hernández Romo
 - Ximena Macías Hernández
